@@ -1,6 +1,4 @@
-import React from 'react'
-
-const FaqCard = ({ data, isActive, onToggle }) => {
+const FaqCard = ({ data, isActive, onToggle }: any) => {
   return (
     <li className="w-full border-l-2 shadow-md rounded my-3 p-3">
       <div className="flex justify-between mb-5">
@@ -18,7 +16,7 @@ const FaqCard = ({ data, isActive, onToggle }) => {
       </div>
       <p>{isActive && data.answer}</p>
     </li>
-  )
-}
+  );
+};
 
-export default FaqCard
+export default FaqCard;

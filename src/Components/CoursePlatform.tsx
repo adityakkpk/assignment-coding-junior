@@ -1,7 +1,7 @@
 import { RootState } from "../store/store.ts";
 import { addToCart, buyNow } from "../store/courseSlice";
 import { useAppDispatch, useAppSelector } from "../store/hooks.ts";
-import FaqCard from "./FaqComponent/FaqCard.jsx";
+import FaqCard from "./FaqComponent/FaqCard.tsx";
 import questions from "./FaqComponent/questions.json";
 import { useState } from "react";
 
@@ -12,7 +12,7 @@ const CoursePlatform: React.FC = () => {
   const [isActive, setIsActive] = useState<any>(false);
 
   const handleButton = (id: any) => {
-    setIsActive((prev) => (prev === id ? false : id));
+    setIsActive((prev: any) => (prev === id ? false : id));
   };
 
   return (
@@ -175,7 +175,7 @@ const CoursePlatform: React.FC = () => {
                 Frequently asked questions
               </h3>
               <ul className="w-full p-8">
-                {questions.map((faq, i) => (
+                {questions.map((faq) => (
                   <FaqCard
                     key={faq.id}
                     data={faq}
