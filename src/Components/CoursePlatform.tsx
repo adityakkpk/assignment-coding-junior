@@ -1,15 +1,27 @@
 import { RootState } from "../store/store.ts";
 import { addToCart, buyNow } from "../store/courseSlice";
 import { useAppDispatch, useAppSelector } from "../store/hooks.ts";
+import FaqCard from "./FaqComponent/FaqCard.jsx";
+import questions from "./FaqComponent/questions.json";
+import { useState } from "react";
 
 const CoursePlatform: React.FC = () => {
   const course = useAppSelector((state: RootState) => state.course);
   const dispatch = useAppDispatch();
 
+  const [isActive, setIsActive] = useState<any>(false);
+
+  const handleButton = (id: any) => {
+    setIsActive((prev) => (prev === id ? false : id));
+  };
+
   return (
-    <div className="bg-neutral-950 text-white min-h-screen">
+    <div className="bg-neutral-950 text-white">
       <nav className="flex justify-between items-center p-4 bg-neutral-950">
-        <div className="text-xl font-bold">Quantum</div>
+        <div className="text-xl font-bold flex gap-2 justify-center items-center">
+          <img src="src/assets/menu.svg" alt="" />
+          <p>Quantum</p>
+        </div>
         <div className="flex space-x-4">
           <button className="hover:text-gray-300">
             <svg
@@ -62,8 +74,8 @@ const CoursePlatform: React.FC = () => {
         </div>
       </nav>
 
-      <main className="flex h-lvh gap-5 justify-between">
-{/* Side Menu */}
+      <main className="flex gap-5 justify-between">
+        {/* Side Menu */}
         <aside className="w-1/5">
           <h2 className="text-xl font-bold mb-4">Course</h2>
           <ul className="space-y-2">
@@ -79,69 +91,103 @@ const CoursePlatform: React.FC = () => {
 
         <div className="w-4/5 bg-neutral-100 p-6 rounded-2xl flex gap-4 justify-center items-start">
           <div className="w-2/3">
-          {/* Video Card */}
-            <div className="bg-purple-900 rounded-lg p-8 mb-4 w-full h-[45vh] relative">
-              <h1 className="text-3xl font-bold mb-4 w-1/2">
-                Blender 3D Fundamentals
-              </h1>
-              <p className="mb-4 w-1/2">
-                Learn The Basics of 3D in Blender with a Project Based Approach
-              </p>
-              <button className="bg-gray-900/60 rounded-full p-2 absolute top-[44%] right-[46%]">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
-                  />
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
+            {/* Video Card */}
+            <div className="bg-purple-900 rounded-2xl p-8 mb-4 w-full h-[45vh] relative flex flex-col justify-between">
+              <div className="w-1/2">
+                <h1 className="text-3xl font-bold tracking-wide mb-2">
+                  BLENDER 3D FUNDAMENTALS
+                </h1>
+                <p className="mb-4 text-sm tracking-wider">
+                  Learn The Basics of 3D in Blender with a Project Based
+                  Approach
+                </p>
+              </div>
+              <p className="font-bold">INTRODUCTION</p>
+              <button className="bg-gray-900/60 rounded-full p-3 absolute top-[44%] right-[46%] flex justify-center items-center">
+                <img src="src/assets/playVid.svg" className="w-3 md:w-5" />
               </button>
             </div>
 
-           {/*Profile and Stats  */}
-           <div></div>
+            {/*Profile and Stats  */}
+            <div className="text-black flex justify-between items-center">
+              <div className="flex gap-2 justify-center items-center">
+                <div className="flex items-center justify-center bg-black text-white rounded-full h-10 w-10 font-bold">
+                  R
+                </div>
+                <div>
+                  <p className="font-bold">{course.publisher.name}</p>
+                  <p className="text-gray-400">Publisher</p>
+                </div>
+              </div>
+              <div className="flex gap-5 justify-center items-center">
+                <p className="flex gap-2 justify-center items-center">
+                  <img src="src/assets/heart.svg" className="h-5" />
+                  <p className="font-semibold">{course.likes}</p>
+                </p>
+                <p className="flex gap-2 justify-center items-center">
+                  <img src="src/assets/share.svg" className="h-5" />
+                  <p className="font-semibold">Share</p>
+                </p>
+                <p className="font-semibold text-2xl">
+                  &middot;&middot;&middot;
+                </p>
+              </div>
+            </div>
 
-           {/*Description  */}
-            <div className="w-full text-black">
+            {/*Description  */}
+            <div className="w-full text-black mt-10">
               <h2 className="text-2xl font-bold mb-4">Description</h2>
-              <p>{course.description}</p>
+              <p className="text-gray-400 leading-7">{course.description}</p>
 
               <h3 className="text-xl font-bold mt-8 mb-4">Course details</h3>
               <div className="flex space-x-8">
-                <div>
-                  <p className="font-bold">Lessons</p>
-                  <p>{course.lessons}</p>
+                <div className="bg-white shadow-lg p-5 rounded-2xl w-48">
+                  <p className="font-semibold text-gray-400">Lessons</p>
+                  <p className="flex gap-2 items-center justify-start text-black font-semibold">
+                    <img src="src/assets/sqadPlay.svg" className="h-4" />
+                    {course.lessons}
+                  </p>
                 </div>
-                <div>
-                  <p className="font-bold">Duration</p>
-                  <p>{course.duration}</p>
+                <div className="bg-white shadow-lg p-5 rounded-2xl w-48">
+                  <p className="font-semibold text-gray-400">Duration</p>
+                  <p className="flex gap-2 items-center justify-start text-black font-semibold">
+                    <img src="src/assets/watch.svg" className="h-4" />
+                    {course.duration}
+                  </p>
                 </div>
-                <div>
-                  <p className="font-bold">Skill level</p>
-                  <p>{course.skillLevel}</p>
+                <div className="bg-white shadow-lg p-5 rounded-2xl w-48">
+                  <p className="font-semibold text-gray-400">Skill level</p>
+                  <p className="flex gap-2 items-center justify-start text-black font-semibold">
+                    <img src="src/assets/chart.svg" className="h-4" />
+                    {course.skillLevel}
+                  </p>
                 </div>
-                <div>
-                  <p className="font-bold">Views</p>
-                  <p>{course.views}</p>
+                <div className="bg-white shadow-lg p-5 rounded-2xl w-48">
+                  <p className="font-semibold text-gray-400">Views</p>
+                  <p className="flex gap-2 items-center justify-start text-black font-semibold">
+                    <img src="src/assets/eye.svg" className="h-4" />
+                    {course.views}
+                  </p>
                 </div>
               </div>
+
+              <h3 className="text-xl font-bold mt-8 mb-4">
+                Frequently asked questions
+              </h3>
+              <ul className="w-full p-8">
+                {questions.map((faq, i) => (
+                  <FaqCard
+                    key={faq.id}
+                    data={faq}
+                    isActive={isActive === faq.id}
+                    onToggle={() => handleButton(faq.id)}
+                  />
+                ))}
+              </ul>
             </div>
           </div>
 
-{/* Price Card */}
+          {/* Price Card */}
           <div className="w-1/3 flex justify-between">
             <div className="w-full">
               <div className="bg-white shadow-xl text-black p-6 rounded-xl">
@@ -193,7 +239,9 @@ const CoursePlatform: React.FC = () => {
                 >
                   Buy now
                 </button>
-                <p className="text-gray-400 font-semibold text-sm mt-4">30-Day money-back guarantee</p>
+                <p className="text-gray-400 font-semibold text-sm mt-4">
+                  30-Day money-back guarantee
+                </p>
               </div>
             </div>
           </div>

@@ -15,7 +15,7 @@ interface CourseState {
   articles: number;
   resources: number;
   rating: number;
-  students: number;
+  likes: number;
   publisher: {
     name: string;
     title: string;
@@ -43,7 +43,7 @@ const initialState: CourseState = {
   articles: 6,
   resources: 8,
   rating: 4.8,
-  students: 4887,
+  likes: 982,
   publisher: {
     name: 'Ryan Curtis',
     title: '3D Artist',
