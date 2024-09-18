@@ -1,17 +1,17 @@
 const FaqCard = ({ data, isActive, onToggle }: any) => {
   return (
-    <li className="w-full border-l-2 shadow-md rounded my-3 p-3">
+    <li className="w-full border-l-2 shadow-md rounded-xl bg-white my-3 p-3">
       <div className="flex justify-between mb-5">
-        <p>{data.question}</p>
+        <p className="font-semibold">{data.question}</p>
         <button
           className={
             isActive
-              ? "rounded px-2 bg-red-400 text-black hover:shadow-red-400 transition duration-200 hover:shadow-md"
-              : "rounded px-2 bg-green-400 text-black hover:shadow-emerald-400 transition duration-200 hover:shadow-md"
+              ? "rounded px-2 text-black transition duration-200"
+              : "rounded px-2 text-black transition duration-200"
           }
           onClick={onToggle}
         >
-          {isActive ? "Close" : "Show"}
+          {isActive ? <img src="src/assets/up.svg" /> : <img src="src/assets/down.svg" alt="" />}
         </button>
       </div>
       <p>{isActive && data.answer}</p>

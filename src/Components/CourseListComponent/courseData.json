@@ -1,0 +1,134 @@
+[
+  {
+    "id": "0",
+    "title": "Course introduction",
+    "lessions": [
+      {
+        "number": "1",
+        "title": "Introduction"
+      },
+      {
+        "number": "2",
+        "title": "Downloading Blender"
+      },
+      {
+        "number": "3",
+        "title": "Setting Preferences"
+      },
+      {
+        "number": "4",
+        "title": "Blender Interface"
+      }
+    ]
+  },
+  {
+    "id": "1",
+    "title": "Basics of Blender 3D",
+    "lessions": [
+      {
+        "number": "1",
+        "title": "Introduction"
+      },
+      {
+        "number": "2",
+        "title": "Downloading Blender"
+      },
+      {
+        "number": "3",
+        "title": "Setting Preferences"
+      },
+      {
+        "number": "4",
+        "title": "Blender Interface"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "title": "Most Editing Operations",
+    "lessions": [
+      {
+        "number": "1",
+        "title": "Introduction"
+      },
+      {
+        "number": "2",
+        "title": "Downloading Blender"
+      },
+      {
+        "number": "3",
+        "title": "Setting Preferences"
+      },
+      {
+        "number": "4",
+        "title": "Blender Interface"
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "title": "Most Common Modifiers",
+    "lessions": [
+      {
+        "number": "1",
+        "title": "Introduction"
+      },
+      {
+        "number": "2",
+        "title": "Downloading Blender"
+      },
+      {
+        "number": "3",
+        "title": "Setting Preferences"
+      },
+      {
+        "number": "4",
+        "title": "Blender Interface"
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "title": "Orthographic Reference",
+    "lessions": [
+      {
+        "number": "1",
+        "title": "Introduction"
+      },
+      {
+        "number": "2",
+        "title": "Downloading Blender"
+      },
+      {
+        "number": "3",
+        "title": "Setting Preferences"
+      },
+      {
+        "number": "4",
+        "title": "Blender Interface"
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "title": "Sculpting",
+    "lessions": [
+      {
+        "number": "1",
+        "title": "Introduction"
+      },
+      {
+        "number": "2",
+        "title": "Downloading Blender"
+      },
+      {
+        "number": "3",
+        "title": "Setting Preferences"
+      },
+      {
+        "number": "4",
+        "title": "Blender Interface"
+      }
+    ]
+  }
+]

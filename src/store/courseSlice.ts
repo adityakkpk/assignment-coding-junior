@@ -15,6 +15,7 @@ interface CourseState {
   articles: number;
   resources: number;
   rating: number;
+  students: number;
   likes: number;
   publisher: {
     name: string;
@@ -43,6 +44,7 @@ const initialState: CourseState = {
   articles: 6,
   resources: 8,
   rating: 4.8,
+  students: 2493,
   likes: 982,
   publisher: {
     name: 'Ryan Curtis',
@@ -67,8 +69,6 @@ const courseSlice = createSlice({
       state.inCart = false;
     },
     buyNow: (state) => {
-      // Logic for immediate purchase could be added here
-      // For now, we'll just add it to the cart
       state.inCart = true;
     },
     updateCourseDetails: (state, action: PayloadAction<Partial<CourseState>>) => {
